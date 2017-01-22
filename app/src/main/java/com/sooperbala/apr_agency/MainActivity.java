@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Calendar calendar;
     private int year, month, day;
     String dateeTym;
-    TextView tvDatess;
+    TextView tvDate;
     Button btn;
 
     @Override
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         parseInite();
 
-        tvDatess = (TextView) findViewById(R.id.textView);
+        tvDate = (TextView) findViewById(R.id.textView);
 
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             dateeTym = new StringBuilder().append(arg3).append("/")
                     .append(arg2 + 1).append("/").append(arg1).toString();
-            tvDatess.setText(dateeTym);
+            tvDate.setText(dateeTym);
         }
     };
 
