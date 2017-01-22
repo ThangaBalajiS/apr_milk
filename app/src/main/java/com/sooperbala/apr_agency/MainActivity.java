@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        parseInit();
+        parseInite();
 
         tvDatess = (TextView) findViewById(R.id.textView);
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-    public void parseInit(){
+    public void parseInite(){
 
         try {
 
