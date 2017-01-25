@@ -1,18 +1,22 @@
 package com.sooperbala.apr_agency;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ListView;
 
 public class DayEntry extends AppCompatActivity {
 
     EditText etSearch;
     CountSupport cs;
-    TextView tvSearchResult;
-    String f;
+    ListView lv;
+    ArrayAdapter ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +24,12 @@ public class DayEntry extends AppCompatActivity {
         setContentView(R.layout.activity_day_entry);
 
         etSearch = (EditText) findViewById(R.id.editText);
-        tvSearchResult = (TextView) findViewById(R.id.textView2);
+
         cs = new CountSupport();
         cs.initShopList();
-
+        ad = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cs.stores);
+        lv = (ListView) findViewById(R.id.lv);
+        lv.setAdapter(ad);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -35,18 +41,24 @@ public class DayEntry extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                for(String s : cs.stores){
-                    if(s.contains(etSearch.getText().toString())){
+                DayEntry.this.ad.getFilter().filter(charSequence);
 
-                        f = f + s;
-                        tvSearchResult.setText(f);
-
-                    }
-                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(getApplicationContext(), MilkAdder.class);
+                intent.putExtra("sltKadai", (String) ad.getItem(i));
+                startActivity(intent);
 
             }
         });

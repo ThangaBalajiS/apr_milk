@@ -2,6 +2,7 @@ package com.sooperbala.apr_agency;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -65,12 +66,15 @@ public class MainActivity extends AppCompatActivity {
             dateeTym = new StringBuilder().append(arg3).append("/")
                     .append(arg2 + 1).append("/").append(arg1).toString();
             tvDate.setText(dateeTym);
+
+            Intent i = new Intent(getApplicationContext(), DayEntry.class);
+            startActivity(i);
         }
     };
 
 
     public void parseInite(){
-
+        //method to initialize the parse server
         try {
 
             Parse.initialize(new Parse.Configuration.Builder(this)

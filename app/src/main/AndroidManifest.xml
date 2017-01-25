@@ -15,7 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DayEntry">
+        <activity
+            android:name=".DayEntry"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity android:name=".MilkAdder">
         </activity>
     </application>
 
