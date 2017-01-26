@@ -1,19 +1,16 @@
 package com.sooperbala.apr_agency;
 
-import android.app.Application;
-import android.widget.ArrayAdapter;
-
 import java.util.ArrayList;
 
 /**
- * Created by bala on 22-01-2017.
+ * Created by bala on 26-01-2017.
  */
 
-public class CountSupport extends Application implements Runnable {
+public class CountSupport implements Runnable {
 
     ArrayList<String> stores = new ArrayList();
     ArrayList<Integer> milkCount = new ArrayList();
-    ArrayAdapter milkAdap;
+
 
     @Override
     public void run() {
@@ -86,13 +83,11 @@ public class CountSupport extends Application implements Runnable {
 
 
         //add numbers for drop down
-        for (int fi = 0; fi < 50; fi++) {
+        for (int fi = 0; fi <= 50; fi++) {
 
             milkCount.add(fi);
 
         }
-
-        milkAdap = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, milkCount);
 
     }
 }

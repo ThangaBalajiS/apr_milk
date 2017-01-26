@@ -2,6 +2,8 @@
 <manifest package="com.sooperbala.apr_agency"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +22,10 @@
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity android:name=".MilkAdder">
+        </activity>
+        <activity android:name=".GetRecords">
+        </activity>
+        <activity android:name=".AddRetailer">
         </activity>
     </application>
 
