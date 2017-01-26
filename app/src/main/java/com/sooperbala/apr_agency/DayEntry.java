@@ -26,7 +26,7 @@ public class DayEntry extends AppCompatActivity {
         etSearch = (EditText) findViewById(R.id.editText);
 
         cs = new CountSupport();
-        cs.initShopList();
+        cs.run();
         ad = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cs.stores);
         lv = (ListView) findViewById(R.id.lv);
         lv.setAdapter(ad);
