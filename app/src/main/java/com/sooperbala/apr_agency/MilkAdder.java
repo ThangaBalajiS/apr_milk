@@ -24,8 +24,8 @@ public class MilkAdder extends AppCompatActivity implements AdapterView.OnItemSe
 
     TextView tvStoreName;
     Spinner spHeri, spSang, spDod, spRed, spGreen, spBlue, spSmall, sp200ml, sp500ml;
-    int heri, sang, dod, red, gren, blu, sma, ml2, ml5;
     CountSupport cd = new CountSupport();
+    String sltStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class MilkAdder extends AppCompatActivity implements AdapterView.OnItemSe
         sp500ml = (Spinner) findViewById(R.id.sp500ML);
 
 
-        ArrayAdapter ap = new ArrayAdapter(this, android.R.layout.simple_spinner_item, cd.milkCount);
+        ArrayAdapter ap = new ArrayAdapter(this, R.layout.spinnertxt, cd.milkCount);
 
 
         ap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -60,7 +60,7 @@ public class MilkAdder extends AppCompatActivity implements AdapterView.OnItemSe
         sp500ml.setAdapter(ap);
 
         Intent i = getIntent();
-        String sltStore = i.getStringExtra("sltKadai");
+        sltStore = i.getStringExtra("sltKadai");
 
         tvStoreName.setText(sltStore);
 
@@ -109,8 +109,9 @@ public class MilkAdder extends AppCompatActivity implements AdapterView.OnItemSe
         SimpleDateFormat df = new SimpleDateFormat("ddMMyyyy");
         String formattedDate = df.format(c.getTime());
 
-        ParseObject paalKanakku = new ParseObject("Milks Kanakku");
+        ParseObject paalKanakku = new ParseObject("kanakku");
         paalKanakku.put("date", formattedDate);
+        paalKanakku.put("kadai", sltStore);
         paalKanakku.put("heri", spHeri.getSelectedItem().toString());
         paalKanakku.put("sang", spSang.getSelectedItem().toString());
         paalKanakku.put("dod", spDod.getSelectedItem().toString());

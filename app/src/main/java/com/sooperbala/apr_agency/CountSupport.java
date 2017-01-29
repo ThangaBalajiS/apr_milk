@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class CountSupport implements Runnable {
 
     ArrayList<String> stores = new ArrayList();
-    ArrayList<Integer> milkCount = new ArrayList();
+    ArrayList<String> milkCount = new ArrayList();
 
 
     @Override
@@ -85,7 +85,7 @@ public class CountSupport implements Runnable {
         //add numbers for drop down
         for (int fi = 0; fi <= 50; fi++) {
 
-            milkCount.add(fi);
+            milkCount.add("   " + fi + "   ");
 
         }
 

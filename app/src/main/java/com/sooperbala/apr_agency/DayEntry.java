@@ -27,7 +27,7 @@ public class DayEntry extends AppCompatActivity {
 
         cs = new CountSupport();
         cs.run();
-        ad = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cs.stores);
+        ad = new ArrayAdapter(this, R.layout.listt, cs.stores);
         lv = (ListView) findViewById(R.id.lv);
         lv.setAdapter(ad);
         etSearch.addTextChangedListener(new TextWatcher() {

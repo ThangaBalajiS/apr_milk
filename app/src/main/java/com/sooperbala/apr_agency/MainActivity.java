@@ -43,5 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void addder(View view) {
+
+        Intent i = new Intent(this, DayEntry.class);
+        startActivity(i);
+
+    }
+
 }
 
